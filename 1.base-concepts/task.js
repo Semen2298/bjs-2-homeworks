@@ -5,36 +5,22 @@ function solveEquation(a, b, c) {
   let discriminant = b ** 2 - 4 * a * c;
 
   if (discriminant < 0) {
-    // Нет корней
-    return arr;
+    arr = [];
   } else if (discriminant === 0) {
     // Один корень
     let root = -b / (2 * a);
     arr.push(root);
-    return arr;
   } else {
     // Два корня
     let root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
     let root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
     arr.push(root1, root2);
-    return arr;
   }
+  return arr;
 }
 
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  if (typeof percent !== 'number' || typeof contribution !== 'number' || typeof amount !== 'number' || typeof countMonths !== 'number') {
-    return "Ошибка ввода. Все аргументы должны быть числами.";
-  }
-
-  if (percent < 0 || contribution < 0 || amount < 0 || countMonths < 0) {
-    return "Ошибка ввода. Все аргументы должны быть положительными числами.";
-  }
-
-  if (contribution > amount) {
-    return "Ошибка ввода. Первоначальный взнос не может быть больше суммы кредита.";
-  }
-
   let monthlyInterestRate = percent / 100 / 12;
   let loanAmount = amount - contribution;
 
